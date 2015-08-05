@@ -3,8 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Sample</title>
+
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
+    <script src="/bower_components/backbone/backbone.js"></script>
+
+    <script type="text/template" id="book-list-template">
+        <h1>Books</h1>
+        <table>
+            <thead>
+                <th>Author</th>
+                <th>Title</th>
+                <th></th>
+            </thead>
+            <tbody></tbody>
+            <button class="addBook">Add New Book</button>
+        </table>
+    </script>
+
+    <script type="text/template" id="book-list-item-template">
+        <td><%- author %></td>
+        <td><%- title %></td>
+        <td><button class="editBook">Edit</button></td>
+        <td><button class="removeBook">Remove</button></td>
+    </script>
+
+    <script type="text/template" id="book-form-template">
+        <p>
+            Title
+            <input type="text" name="title" value="<%- title %>"/>
+        </p>
+        <p>
+            Author
+            <input type="text" name="author" value="<%- author %>"/>
+        </p>
+        <p></p>
+        <button class="saveBook">Save Book</button>
+    </script>
+
+    <script src="/scripts/model/BookModel.js"></script>
+    <script src="/scripts/collection/BookCollection.js"></script>
+    <script src="/scripts/view/BookListItemView.js"></script>
+    <script src="/scripts/view/BookListView.js"></script>
+    <script src="/scripts/view/BookFormView.js"></script>
+    <script src="/scripts/BookApp.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            window.app = new BookApp();
+        });
+    </script>
 </head>
 <body>
-Sample
 </body>
 </html>
